@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directories:
+      - "/auth-demo"
+      - "/chat"
+      - "/fiber"
+      - "/imagine"
+      - "/justmakeit"
+      - "/vercel-demo"
+    schedule:
+      interval: weekly

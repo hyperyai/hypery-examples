@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.145 0.09 265.755);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.145 0.09 265.755);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.145 0.09 265.755);
+  --color-primary: oklch(0.24 0.082 265.755);
+  --color-primary-foreground: oklch(0.985 0.002 264.542);
+  --color-secondary: oklch(0.967 0.001 264.542);
+  --color-secondary-foreground: oklch(0.24 0.082 265.755);
+  --color-muted: oklch(0.967 0.001 264.542);
+  --color-muted-foreground: oklch(0.533 0.018 256.788);
+  --color-accent: oklch(0.967 0.001 264.542);
+  --color-accent-foreground: oklch(0.24 0.082 265.755);
+  --color-destructive: oklch(0.577 0.246 27.325);
+  --color-destructive-foreground: oklch(0.985 0.002 264.542);
+  --color-border: oklch(0.921 0.005 264.542);
+  --color-input: oklch(0.921 0.005 264.542);
+  --color-ring: oklch(0.145 0.09 265.755);
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: oklch(0.145 0.09 265.755);
+    --color-foreground: oklch(0.985 0.002 264.542);
+    --color-card: oklch(0.145 0.09 265.755);
+    --color-card-foreground: oklch(0.985 0.002 264.542);
+    --color-popover: oklch(0.145 0.09 265.755);
+    --color-popover-foreground: oklch(0.985 0.002 264.542);
+    --color-primary: oklch(0.985 0.002 264.542);
+    --color-primary-foreground: oklch(0.24 0.082 265.755);
+    --color-secondary: oklch(0.278 0.029 257.287);
+    --color-secondary-foreground: oklch(0.985 0.002 264.542);
+    --color-muted: oklch(0.278 0.029 257.287);
+    --color-muted-foreground: oklch(0.697 0.019 247.858);
+    --color-accent: oklch(0.278 0.029 257.287);
+    --color-accent-foreground: oklch(0.985 0.002 264.542);
+    --color-destructive: oklch(0.407 0.153 27.325);
+    --color-destructive-foreground: oklch(0.985 0.002 264.542);
+    --color-border: oklch(0.278 0.029 257.287);
+    --color-input: oklch(0.278 0.029 257.287);
+    --color-ring: oklch(0.855 0.028 252.416);
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+

@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* XTerm Terminal */
+@import '@xterm/xterm/css/xterm.css';
+
+/* ============================================
+   JustMakeIt.AI Theme Variables
+   ============================================ */
+:root {
+  /* Background colors */
+  --bg-primary: #1E1E1E;
+  --bg-secondary: #252526;
+  --bg-tertiary: #2D2D30;
+  --bg-elevated: #333333;
+  
+  /* Border colors */
+  --border-primary: #3E3E42;
+  --border-secondary: #454545;
+  --border-focus: #007ACC;
+  
+  /* Text colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-tertiary: #969696;
+  --text-disabled: #6B6B6B;
+  
+  /* Accent colors */
+  --accent-primary: #007ACC;
+  --accent-hover: #005A9E;
+  --accent-success: #4EC9B0;
+  --accent-warning: #CE9178;
+  --accent-error: #F48771;
+  
+  /* Status colors */
+  --status-success: #89D185;
+  --status-error: #F14C4C;
+  --status-warning: #CCA700;
+  --status-info: #75BEFF;
+  
+  /* Input colors */
+  --input-bg: #3C3C3C;
+  --input-border: #454545;
+  --input-focus: #007ACC;
+  
+  /* Button colors */
+  --btn-primary-bg: #0E639C;
+  --btn-primary-hover: #1177BB;
+  --btn-danger-bg: #C72E0F;
+  --btn-danger-hover: #E03E1C;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+  
+  /* Font sizes - VS Code Standard */
+  --font-size-xs: 11px;      /* Status bar, metadata */
+  --font-size-sm: 12px;      /* Secondary UI text */
+  --font-size-base: 13px;    /* Main UI, editor, terminal, file tree */
+  --font-size-md: 14px;      /* Emphasized text */
+  --font-size-lg: 16px;      /* Headings */
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure all text elements inherit the base font */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4E4E4E;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.ide-bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.ide-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.ide-border {
+  border-color: var(--border-primary);
+}
+
+.ide-text-primary {
+  color: var(--text-primary);
+}
+
+.ide-text-secondary {
+  color: var(--text-secondary);
+}
+
+.ide-text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.ide-transition {
+  transition: var(--transition-normal);
+}
+
+/* ============================================
+   Component Styles
+   ============================================ */
+
+/* Buttons */
+.ide-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.ide-btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--text-primary);
+}
+
+.ide-btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.ide-btn-danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--text-primary);
+}
+
+.ide-btn-danger:hover {
+  background-color: var(--btn-danger-hover);
+}
+
+/* Panels */
+.ide-panel {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.ide-panel-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+}
+
