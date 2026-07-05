@@ -5,12 +5,7 @@ const nextConfig: NextConfig = {
   
   // Disable static optimization for pages that use client-side features
   reactStrictMode: true,
-  
-  // Disable ESLint during builds (run separately in CI)
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
+
   // Required headers for WebContainers (cross-origin isolation)
   // Using credentialless instead of require-corp to allow CDN resources
   async headers() {

@@ -99,6 +99,11 @@ export function Chat({
     updateWorkspace: () => {}, // Not needed anymore, we use thread updates
     updateFile: onFileUpdate,
     deleteFile: onFileDelete,
+    // File access for the file/context/ui MCP tools.
+    files: workspace.files,
+    activeFile: workspace.activeTabPath ?? null,
+    setFiles: (files) => { Object.entries(files).forEach(([p, c]) => onFileUpdate(p, c)); },
+    setActiveFile: () => {}, // Chat doesn't own tab state (mirrors updateWorkspace no-op)
     addChatMessage: (msg: Omit<ChatMessage, 'id' | 'timestamp'>) => {
       const newMessage: ChatMessage = {
         ...msg,
@@ -331,7 +336,6 @@ This creates a visual TODO list the user can see!
         body: JSON.stringify({
           model: 'openai/gpt-4o-mini', // Fast orchestrator - calls model_execute with Claude for code
           provider: 'openrouter',
-          tool_choice: 'auto',
           messages: [
             systemMessage,
             ...activeThread.messages.map(m => {

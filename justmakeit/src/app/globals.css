@@ -1,9 +1,10 @@
+/* XTerm Terminal — must come before @tailwind: CSS requires @import to precede
+   all other rules, and the @tailwind directives expand into rules. */
+@import '@xterm/xterm/css/xterm.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* XTerm Terminal */
-@import '@xterm/xterm/css/xterm.css';
 
 /* ============================================
    JustMakeIt.AI Theme Variables

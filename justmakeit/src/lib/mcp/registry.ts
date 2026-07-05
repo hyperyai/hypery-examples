@@ -22,6 +22,11 @@ export interface MCPContext {
   updateFile: (path: string, content: string) => void;
   deleteFile: (path: string) => void;
   addChatMessage: (message: Omit<ChatMessage, 'id' | 'timestamp'>) => void;
+  // Workspace file access used by the file/context/ui MCP tools.
+  files: Record<string, string>;
+  activeFile: string | null;
+  setFiles: (files: Record<string, string>) => void;
+  setActiveFile: (path: string) => void;
   // Hypery integration for API calls (image generation, etc.)
   aiGatewayUrl?: string;
   aiGatewayToken?: string;
