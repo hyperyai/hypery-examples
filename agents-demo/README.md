@@ -200,9 +200,8 @@ Browse and run pre-built examples.
 
 ## Learn More
 
-- **Package Documentation**: `../../packages/hypery-agents/README.md`
-- **Quick Start Guide**: `../../docs/guides/QUICK_START_AGENTS.md`
-- **Architecture (historical note)**: `../../docs/archive/historical-root/ADVANCED_AGENT_ARCHITECTURE.md`
+- **`@hypery/agents`** — the orchestration library this demo previews. Not yet published; watch [hypery.ai](https://hypery.ai) for availability.
+- **Hypery docs**: https://docs.hypery.ai
 
 ## License
 

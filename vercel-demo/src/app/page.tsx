@@ -122,7 +122,7 @@ export default function ChatPage() {
         </form>
 
         <p className="mt-2 text-center text-sm text-gray-500">
-          Powered by Vercel AI SDK + Hypery Hub
+          Powered by Vercel AI SDK + Hypery
         </p>
       </div>
     </div>

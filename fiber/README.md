@@ -27,7 +27,7 @@ A low-poly retro 3D model generator powered by AI chat interface. Create and mod
 ### Prerequisites
 
 - Node.js 18+ and npm/pnpm/yarn
-- An Hypery Hub account with OAuth app configured
+- A Hypery account with OAuth app configured
 - OpenRouter access through Hypery
 
 ### Installation
@@ -59,7 +59,7 @@ NEXT_PUBLIC_AUTH_URL=http://localhost:3001
 ```
 
 **How to get OAuth credentials:**
-1. Go to your Hypery Hub dashboard
+1. Go to your Hypery dashboard
 2. Navigate to Apps section
 3. Create a new app or select existing one
 4. Copy the Client ID
@@ -272,7 +272,7 @@ MIT License - See LICENSE file for details
 ## Learn More
 
 - [React Three Fiber Docs](https://docs.pmnd.rs/react-three-fiber)
-- [Hypery Hub Docs](https://docs.hypery.com)
+- [Hypery Docs](https://docs.hypery.ai)
 - [Vercel AI SDK Docs](https://sdk.vercel.ai/docs)
 - [OpenRouter Docs](https://openrouter.ai/docs)
 - [Next.js Docs](https://nextjs.org/docs)
@@ -282,9 +282,9 @@ MIT License - See LICENSE file for details
 For issues or questions:
 - GitHub Issues: [hypery/issues](https://github.com/hypery/hypery/issues)
 - Discord: [Hypery Community](https://discord.gg/hypery)
-- Email: support@hypery.com
+- Email: support@hypery.ai
 
 ---
 
-Built with ❤️ using React Three Fiber and Hypery Hub
+Built with ❤️ using React Three Fiber and Hypery
 

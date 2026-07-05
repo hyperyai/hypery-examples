@@ -1,10 +1,10 @@
 # Vercel AI SDK Demo
 
-Demo app showcasing Vercel AI SDK with Hypery Hub authentication, built using the `@hypery/auth` and `@hypery/errors` packages.
+Demo app showcasing the Vercel AI SDK with Hypery authentication, built on the [`@hypery/auth`](https://github.com/hyperyai/hypery-sdk) package (authentication, checkout, and error handling).
 
 ## Features
 
-- ✅ **OAuth 2.0 Authentication** - Secure login with Hypery Hub
+- ✅ **OAuth 2.0 Authentication** - Secure login with Hypery
 - ✅ **Lazy Authentication** - Users can start typing and are prompted to sign in when needed
 - ✅ **Vercel AI SDK Integration** - Uses `@ai-sdk/react` for chat interface
 - ✅ **Error Handling** - Shows modals for insufficient credits, spending limits, etc.
@@ -16,7 +16,7 @@ Demo app showcasing Vercel AI SDK with Hypery Hub authentication, built using th
 
 ### 1. Register Your App
 
-1. Go to [Hypery Hub](http://localhost:3001) (or your production URL)
+1. Go to [Hypery](http://localhost:3001) (or your production URL)
 2. Navigate to Settings → Apps → Create New App
 3. Fill in:
    - **Name**: Vercel AI SDK Demo
@@ -29,7 +29,7 @@ Demo app showcasing Vercel AI SDK with Hypery Hub authentication, built using th
 Create a `.env.local` file:
 
 ```bash
-# OAuth App Credentials (from Hypery Hub)
+# OAuth App Credentials (from Hypery)
 NEXT_PUBLIC_OAUTH_CLIENT_ID=your_client_id_here
 NEXT_PUBLIC_REDIRECT_URI=http://localhost:3005/callback
 
@@ -62,7 +62,7 @@ npm run dev
 3. **Submit Attempt**: When they press Enter:
    - If authenticated → Message is sent
    - If not authenticated → `AuthModal` appears prompting them to sign in
-4. **OAuth Flow**: User signs in via Hypery Hub OAuth
+4. **OAuth Flow**: User signs in via Hypery OAuth
 5. **Token Storage**: Access token is stored in localStorage by `@hypery/auth`
 6. **Authenticated Requests**: API route automatically includes token from cookies
 
@@ -70,7 +70,7 @@ npm run dev
 
 The `/api/chat/route.ts` endpoint:
 - Extracts OAuth token from cookies or Authorization header
-- Proxies requests to Hypery Hub's `/api/v1/chat/completions`
+- Proxies requests to Hypery's `/api/v1/chat/completions`
 - Returns streaming text responses using Vercel AI SDK's `streamText()`
 
 ```typescript
@@ -87,7 +87,7 @@ const result = streamText({
 
 ### Error Handling
 
-The app uses `@hypery/errors` to display structured error modals:
+The app uses `@hypery/auth` to display structured error modals:
 
 - **Insufficient Credits**: Shows current balance and link to add credits
 - **Spending Limit Exceeded**: Shows app's spending limits and usage
@@ -97,7 +97,7 @@ The app uses `@hypery/errors` to display structured error modals:
 
 ### `@hypery/auth`
 
-Provides OAuth 2.0 authentication with Hypery Hub:
+Provides OAuth 2.0 authentication with Hypery:
 
 ```typescript
 import { HyperyProvider, useHyperyAuth, AuthModal } from '@hypery/auth';
@@ -105,14 +105,12 @@ import { HyperyProvider, useHyperyAuth, AuthModal } from '@hypery/auth';
 const { isAuthenticated, getAccessToken, user } = useHyperyAuth();
 ```
 
-[Learn more →](../../packages/hypery-auth/README.md)
+### Error handling
 
-### `@hypery/errors`
-
-Handles structured errors from Hypery Hub:
+Handles structured errors from Hypery:
 
 ```typescript
-import { RestrictionModal, type RestrictionError } from '@hypery/errors';
+import { RestrictionModal, type RestrictionError } from '@hypery/auth';
 
 <RestrictionModal
   error={restrictionError}
@@ -123,7 +121,7 @@ import { RestrictionModal, type RestrictionError } from '@hypery/errors';
 />
 ```
 
-[Learn more →](../../packages/hypery-errors/README.md)
+[Learn more →](https://github.com/hyperyai/hypery-sdk)
 
 ## Architecture
 
@@ -152,7 +150,7 @@ import { RestrictionModal, type RestrictionError } from '@hypery/errors';
            │ 5. Proxy to Hypery
            ↓
 ┌─────────────────────┐
-│  Hypery Hub     │
+│  Hypery     │
 │  /api/v1/chat       │
 └──────────┬──────────┘
            │
@@ -225,11 +223,11 @@ NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
 
 ### Register Production App
 
-Create a separate OAuth app in Hypery Hub for production with your production redirect URI.
+Create a separate OAuth app in Hypery for production with your production redirect URI.
 
 ## Support
 
 For issues or questions:
-- [Hypery Hub Documentation](https://docs.hypery.ai)
+- [Hypery Documentation](https://docs.hypery.ai)
 - [Vercel AI SDK Docs](https://sdk.vercel.ai/docs)
 - [GitHub Issues](https://github.com/your-org/hypery/issues)

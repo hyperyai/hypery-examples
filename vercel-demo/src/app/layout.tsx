@@ -6,8 +6,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Vercel AI SDK Demo - Hypery Hub',
-  description: 'Demo of Vercel AI SDK with Hypery Hub',
+  title: 'Vercel AI SDK Demo - Hypery',
+  description: 'Demo of Vercel AI SDK with Hypery',
 };
 
 export default function RootLayout({

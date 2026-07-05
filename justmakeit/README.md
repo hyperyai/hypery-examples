@@ -277,8 +277,7 @@ See [WORKSPACES_QUICKSTART.md](./WORKSPACES_QUICKSTART.md) for a detailed guide.
 ## 📚 Learn More
 
 - [Model Context Protocol](https://modelcontextprotocol.io)
-- [Hypery Documentation](../../../README.md)
-- [MCP Package README](../../packages/hypery-mcp/README.md)
+- [Hypery Documentation](https://docs.hypery.ai)
 
 ## 🎯 Key Takeaways
 

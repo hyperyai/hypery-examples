@@ -3,7 +3,7 @@ import { HyperyProvider } from '@hypery/auth';
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "3D Model Generator - Hypery Hub",
+  title: "3D Model Generator - Hypery",
   description: "Create and modify 3D models using AI chat interface",
 };
 

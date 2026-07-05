@@ -875,7 +875,7 @@ This creates a visual TODO list the user can see!
         />
       </div>
 
-      {/* Restriction Modal - CONNECTED to Hypery Hub */}
+      {/* Restriction Modal - CONNECTED to Hypery */}
       <RestrictionModal
         error={restrictionError}
         appId={process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID!}

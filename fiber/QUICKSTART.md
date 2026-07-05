@@ -28,7 +28,7 @@ NEXT_PUBLIC_AUTH_URL=http://localhost:3001
 ```
 
 **Getting OAuth Credentials:**
-- Go to Hypery Hub dashboard
+- Go to Hypery dashboard
 - Create/select an app
 - Copy Client ID
 - Set redirect URI to `http://localhost:3006/callback`

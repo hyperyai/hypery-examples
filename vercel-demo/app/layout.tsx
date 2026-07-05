@@ -3,7 +3,7 @@ import { HyperyProvider } from '@hypery/auth';
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Vercel AI SDK Demo - Hypery Hub",
+  title: "Vercel AI SDK Demo - Hypery",
   description: "Demo using Vercel AI SDK with OAuth authentication",
 };
 

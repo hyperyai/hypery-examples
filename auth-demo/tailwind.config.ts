@@ -5,8 +5,8 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    // Include the auth package so Tailwind scans its components
-    '../../packages/hypery-auth/src/**/*.{js,ts,jsx,tsx}',
+    // Include the installed @hypery/auth package so Tailwind generates its component classes
+    './node_modules/@hypery/auth/dist/**/*.js',
   ],
 };
 
