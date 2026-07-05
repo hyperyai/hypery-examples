@@ -47,5 +47,5 @@
     "tailwindcss": "^4.1.17",
     "typescript": "^6.0.3"
   },
-  "license": "PIF"
+  "license": "MIT"
 }

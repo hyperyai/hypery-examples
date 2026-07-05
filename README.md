@@ -52,4 +52,4 @@ npm run dev
 
 ## License
 
-[PIF](./LICENSE) — Pay It Forward.
+[MIT](./LICENSE).
