@@ -5,7 +5,7 @@
 
 'use client';
 
-import { SignedIn, SignedOut, SignInForm, Protect, useUser, useHyperyAuth } from '@hypery/auth';
+import { SignedIn, SignedOut, SignInForm, Protect, useUser, useHyperyAuth } from '@hypery/sdk';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 

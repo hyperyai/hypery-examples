@@ -6,7 +6,7 @@
 'use client';
 
 import { useState, useCallback, useMemo, useEffect, memo, useRef } from 'react';
-import { useUser, UserButton } from '@hypery/auth';
+import { useUser, UserButton } from '@hypery/sdk';
 import { useWorkspaces } from '@/hooks/useWorkspaces';
 import { WorkspaceSelector } from '@/components/workspace/WorkspaceSelector';
 import { CreateWorkspaceDialog } from '@/components/workspace/CreateWorkspaceDialog';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, Suspense } from 'react';
-import { useHyperyAuth } from '@hypery/auth';
+import { useHyperyAuth } from '@hypery/sdk';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 function CallbackContent() {

@@ -49,8 +49,8 @@ import {
   ReasoningTrigger,
 } from '@/components/ai-elements/reasoning';
 import { Loader } from '@/components/ai-elements/loader';
-import { useHyperyAuth, AuthModal } from '@hypery/auth';
-import { RestrictionModal, type RestrictionError } from '@hypery/auth';
+import { useHyperyAuth, AuthModal } from '@hypery/sdk';
+import { RestrictionModal, type RestrictionError } from '@hypery/sdk';
 
 const models = [
   {

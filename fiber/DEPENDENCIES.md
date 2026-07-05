@@ -28,7 +28,7 @@ This app uses **React 18.3.1** instead of React 19 because:
 - `openai`: ^4.104.0 (latest)
 
 ### Authentication
-- `@hypery/auth`: * (workspace package)
+- `@hypery/sdk`: * (workspace package)
 
 ### UI Components (shadcn/ui via Radix)
 - `@radix-ui/react-dialog`: ^1.1.15

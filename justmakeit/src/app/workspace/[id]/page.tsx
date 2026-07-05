@@ -5,7 +5,7 @@
 
 'use client';
 
-import { Protect } from '@hypery/auth';
+import { Protect } from '@hypery/sdk';
 import dynamic from 'next/dynamic';
 import { use } from 'react';
 

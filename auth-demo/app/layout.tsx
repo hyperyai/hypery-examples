@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { HyperyProvider } from '@hypery/auth';
+import { HyperyProvider } from '@hypery/sdk';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Hypery Auth Demo',
-  description: 'Demo app showcasing @hypery/auth package',
+  description: 'Demo app showcasing @hypery/sdk package',
 };
 
 export default function RootLayout({

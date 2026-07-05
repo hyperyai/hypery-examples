@@ -14,7 +14,7 @@ import {
   RedirectToSignIn,
   AuthModal,
   AuthButton,
-} from '@hypery/auth';
+} from '@hypery/sdk';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -45,7 +45,7 @@ export default function ExamplesPage() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">Component Examples</h1>
           <p className="text-gray-600">
-            Complete showcase of all @hypery/auth components and hooks
+            Complete showcase of all @hypery/sdk components and hooks
           </p>
         </div>
 

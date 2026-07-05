@@ -14,7 +14,7 @@ import {
   RestrictionModal,
   useHyperyAuth,
   type RestrictionError,
-} from '@hypery/auth';
+} from '@hypery/sdk';
 import Link from 'next/link';
 import { useState } from 'react';
 

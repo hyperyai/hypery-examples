@@ -23,7 +23,7 @@ function CallbackContent() {
     }
 
     if (code) {
-      // The @hypery/auth provider will handle the code exchange
+      // The @hypery/sdk provider will handle the code exchange
       // Just redirect to the IDE
       router.push('/ide');
     } else {

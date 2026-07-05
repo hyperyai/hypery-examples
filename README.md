@@ -1,7 +1,7 @@
 # Hypery Examples
 
 Runnable example apps for building on [Hypery](https://hypery.ai) — OAuth
-sign-in with [`@hypery/auth`](https://github.com/hyperyai/hypery-sdk), AI API
+sign-in with [`@hypery/sdk`](https://github.com/hyperyai/hypery-sdk), AI API
 calls, checkout, error/restriction handling, and both OAuth integration
 patterns (frontend PKCE and backend proxy).
 
@@ -13,13 +13,12 @@ localStorage or a local JSON file).
 
 | App | Port | What it shows |
 | --- | --- | --- |
-| [`auth-demo`](./auth-demo) | 3003 | `@hypery/auth` component gallery — sign-in, modals, checkout, hooks |
+| [`auth-demo`](./auth-demo) | 3003 | `@hypery/sdk` component gallery — sign-in, modals, checkout, hooks |
 | [`chat`](./chat) | 3002 | Chat UI on the AI API; **backend-proxy** OAuth (confidential client) |
-| [`fiber`](./fiber) | 3006 | React Three Fiber 3D generation with `@hypery/auth` |
+| [`fiber`](./fiber) | 3006 | React Three Fiber 3D generation with `@hypery/sdk` |
 | [`imagine`](./imagine) | 3007 | Image generation; **backend-proxy** OAuth (confidential client) |
-| [`justmakeit`](./justmakeit) | 3004 | AI IDE with MCP tools, Monaco, WebContainers; `@hypery/auth` |
-| [`vercel-demo`](./vercel-demo) | 3005 | Vercel AI SDK integration with `@hypery/auth` |
-| [`agents-demo`](./agents-demo) | 3008 | ⚠️ WIP — written against the unpublished `@hypery/agents` API |
+| [`justmakeit`](./justmakeit) | 3004 | AI IDE with MCP tools, Monaco, WebContainers; `@hypery/sdk` |
+| [`vercel-demo`](./vercel-demo) | 3005 | Vercel AI SDK integration with `@hypery/sdk` |
 
 Start with **[INTEGRATION_PATTERNS.md](./INTEGRATION_PATTERNS.md)** — it
 explains the two OAuth patterns (frontend PKCE vs. backend proxy) and when to

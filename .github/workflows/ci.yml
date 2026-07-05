@@ -14,7 +14,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # agents-demo is excluded: WIP against the unpublished @hypery/agents API
         app: [auth-demo, chat, fiber, imagine, justmakeit, vercel-demo]
     steps:
       - name: Checkout

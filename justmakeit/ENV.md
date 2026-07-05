@@ -18,7 +18,7 @@ NEXT_PUBLIC_REDIRECT_URI=http://localhost:3004/callback
 
 > **Never put a client secret in a `NEXT_PUBLIC_*` variable.** Those values are
 > bundled into the browser build. This demo uses OAuth 2.0 + PKCE via
-> `@hypery/auth`, which is a public-client flow — it does not need a secret.
+> `@hypery/sdk`, which is a public-client flow — it does not need a secret.
 
 ## Getting OAuth Credentials
 

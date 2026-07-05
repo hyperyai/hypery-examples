@@ -1,6 +1,6 @@
 'use client';
 
-import { SignedIn, SignedOut, SignIn, UserButton, useUser } from '@hypery/auth';
+import { SignedIn, SignedOut, SignIn, UserButton, useUser } from '@hypery/sdk';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -233,7 +233,7 @@ function AuthenticatedContent() {
           <h3 className="text-lg font-semibold mb-4 text-gray-900">📚 Package Info</h3>
           <div className="space-y-2 text-sm text-gray-600">
             <p>
-              <strong className="text-gray-900">Package:</strong> <code className="text-xs bg-gray-100 px-1 py-0.5 rounded text-gray-800">@hypery/auth</code>
+              <strong className="text-gray-900">Package:</strong> <code className="text-xs bg-gray-100 px-1 py-0.5 rounded text-gray-800">@hypery/sdk</code>
             </p>
             <p>
               <strong className="text-gray-900">Version:</strong> 0.1.0
@@ -243,7 +243,7 @@ function AuthenticatedContent() {
             </p>
             <p className="pt-2">
               <a
-                href="https://github.com/your-repo/packages/hypery-auth"
+                href="https://github.com/your-repo/packages/hypery-sdk"
                 className="text-blue-600 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -1,6 +1,6 @@
 # Hypery Auth Demo
 
-A minimal demo app showcasing the `@hypery/auth` authentication library.
+A minimal demo app showcasing the `@hypery/sdk` authentication library.
 
 ## Features Demonstrated
 
@@ -107,7 +107,7 @@ Visit http://localhost:3003
 
 ```tsx
 // app/layout.tsx
-import { HyperyProvider } from '@hypery/auth';
+import { HyperyProvider } from '@hypery/sdk';
 
 export default function RootLayout({ children }) {
   return (
@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
 ### Conditional Rendering
 
 ```tsx
-import { SignedIn, SignedOut, SignIn, UserButton } from '@hypery/auth';
+import { SignedIn, SignedOut, SignIn, UserButton } from '@hypery/sdk';
 
 function Header() {
   return (
@@ -145,7 +145,7 @@ function Header() {
 ### Protected Routes
 
 ```tsx
-import { Protect } from '@hypery/auth';
+import { Protect } from '@hypery/sdk';
 
 export default function ProtectedPage() {
   return (
@@ -159,7 +159,7 @@ export default function ProtectedPage() {
 ### API Requests
 
 ```tsx
-import { useHyperyAuth } from '@hypery/auth';
+import { useHyperyAuth } from '@hypery/sdk';
 
 function MyComponent() {
   const { getAccessToken } = useHyperyAuth();
@@ -199,8 +199,8 @@ auth-demo/
 
 ## Learn More
 
-- **Package Documentation:** `/packages/hypery-auth/README.md`
-- **More Examples:** `/packages/hypery-auth/EXAMPLES.md`
+- **Package Documentation:** `/packages/hypery-sdk/README.md`
+- **More Examples:** `/packages/hypery-sdk/EXAMPLES.md`
 - **Hypery Docs:** http://localhost:3001/docs
 
 ## License
