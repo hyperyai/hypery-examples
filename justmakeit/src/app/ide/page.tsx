@@ -5,7 +5,7 @@
 
 'use client';
 
-import { Protect } from '@hypery/sdk';
+import { Protect } from '@hyperyai/sdk';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useWorkspaces } from '@/hooks/useWorkspaces';

@@ -23,7 +23,7 @@ function CallbackContent() {
     }
 
     if (code) {
-      // The @hypery/sdk provider will handle the code exchange
+      // The @hyperyai/sdk provider will handle the code exchange
       // Just redirect to the IDE
       router.push('/ide');
     } else {

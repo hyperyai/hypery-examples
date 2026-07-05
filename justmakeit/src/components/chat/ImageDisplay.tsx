@@ -6,7 +6,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useHyperyAuth } from '@hypery/sdk';
+import { useHyperyAuth } from '@hyperyai/sdk';
 import { Loader2, CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 
 interface ImageDisplayProps {

@@ -173,7 +173,7 @@ All tools follow the Model Context Protocol specification:
 
 ```
 JustMakeIt.AI
-├── @hypery/mcp (Core MCP library)
+├── @hyperyai/mcp (Core MCP library)
 │   ├── Tool Registry
 │   ├── Tool Executor
 │   ├── JSON Schema Validator

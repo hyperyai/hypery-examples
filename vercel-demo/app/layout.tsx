@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HyperyProvider } from '@hypery/sdk';
+import { HyperyProvider } from '@hyperyai/sdk';
 import "./globals.css";
 
 export const metadata: Metadata = {

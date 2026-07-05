@@ -8,7 +8,7 @@
     "start": "next start -p 3003"
   },
   "dependencies": {
-    "@hypery/sdk": "^1.0.0",
+    "@hyperyai/sdk": "^1.0.0",
     "next": "^16.2.10",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"

@@ -1,6 +1,6 @@
 # Hypery Auth Demo
 
-A minimal demo app showcasing the `@hypery/sdk` authentication library.
+A minimal demo app showcasing the `@hyperyai/sdk` authentication library.
 
 ## Features Demonstrated
 
@@ -107,7 +107,7 @@ Visit http://localhost:3003
 
 ```tsx
 // app/layout.tsx
-import { HyperyProvider } from '@hypery/sdk';
+import { HyperyProvider } from '@hyperyai/sdk';
 
 export default function RootLayout({ children }) {
   return (
@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
 ### Conditional Rendering
 
 ```tsx
-import { SignedIn, SignedOut, SignIn, UserButton } from '@hypery/sdk';
+import { SignedIn, SignedOut, SignIn, UserButton } from '@hyperyai/sdk';
 
 function Header() {
   return (
@@ -145,7 +145,7 @@ function Header() {
 ### Protected Routes
 
 ```tsx
-import { Protect } from '@hypery/sdk';
+import { Protect } from '@hyperyai/sdk';
 
 export default function ProtectedPage() {
   return (
@@ -159,7 +159,7 @@ export default function ProtectedPage() {
 ### API Requests
 
 ```tsx
-import { useHyperyAuth } from '@hypery/sdk';
+import { useHyperyAuth } from '@hyperyai/sdk';
 
 function MyComponent() {
   const { getAccessToken } = useHyperyAuth();

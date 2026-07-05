@@ -6,7 +6,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useHyperyAuth } from '@hypery/sdk';
+import { useHyperyAuth } from '@hyperyai/sdk';
 import type { Workspace, ChatMessage, ChatThread } from '@/types/workspace';
 import { MCPRegistry, type MCPContext, type MCPToolExecution } from '@/lib/mcp/registry';
 import { workspaceTools } from '@/lib/mcp/workspace-tools';
@@ -21,7 +21,7 @@ import { MessageList } from './MessageList';
 import { ChatInput, type ChatMode } from './ChatInput';
 import { TaskProgress } from './TaskProgress';
 import { ChatThreadSelector } from './ChatThreadSelector';
-import { RestrictionModal, type RestrictionError } from '@hypery/sdk';
+import { RestrictionModal, type RestrictionError } from '@hyperyai/sdk';
 
 interface ChatProps {
   workspace: Workspace;

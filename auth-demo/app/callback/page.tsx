@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useHyperyAuth } from '@hypery/sdk';
+import { useHyperyAuth } from '@hyperyai/sdk';
 import { useRouter } from 'next/navigation';
 
 export default function CallbackPage() {

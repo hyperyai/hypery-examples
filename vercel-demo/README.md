@@ -1,6 +1,6 @@
 # Vercel AI SDK Demo
 
-Demo app showcasing the Vercel AI SDK with Hypery authentication, built on the [`@hypery/sdk`](https://github.com/hyperyai/hypery-sdk) package (authentication, checkout, and error handling).
+Demo app showcasing the Vercel AI SDK with Hypery authentication, built on the [`@hyperyai/sdk`](https://github.com/hyperyai/hypery-sdk) package (authentication, checkout, and error handling).
 
 ## Features
 
@@ -63,7 +63,7 @@ npm run dev
    - If authenticated → Message is sent
    - If not authenticated → `AuthModal` appears prompting them to sign in
 4. **OAuth Flow**: User signs in via Hypery OAuth
-5. **Token Storage**: Access token is stored in localStorage by `@hypery/sdk`
+5. **Token Storage**: Access token is stored in localStorage by `@hyperyai/sdk`
 6. **Authenticated Requests**: API route automatically includes token from cookies
 
 ### API Route
@@ -87,7 +87,7 @@ const result = streamText({
 
 ### Error Handling
 
-The app uses `@hypery/sdk` to display structured error modals:
+The app uses `@hyperyai/sdk` to display structured error modals:
 
 - **Insufficient Credits**: Shows current balance and link to add credits
 - **Spending Limit Exceeded**: Shows app's spending limits and usage
@@ -95,12 +95,12 @@ The app uses `@hypery/sdk` to display structured error modals:
 
 ## Packages Used
 
-### `@hypery/sdk`
+### `@hyperyai/sdk`
 
 Provides OAuth 2.0 authentication with Hypery:
 
 ```typescript
-import { HyperyProvider, useHyperyAuth, AuthModal } from '@hypery/sdk';
+import { HyperyProvider, useHyperyAuth, AuthModal } from '@hyperyai/sdk';
 
 const { isAuthenticated, getAccessToken, user } = useHyperyAuth();
 ```
@@ -110,7 +110,7 @@ const { isAuthenticated, getAccessToken, user } = useHyperyAuth();
 Handles structured errors from Hypery:
 
 ```typescript
-import { RestrictionModal, type RestrictionError } from '@hypery/sdk';
+import { RestrictionModal, type RestrictionError } from '@hyperyai/sdk';
 
 <RestrictionModal
   error={restrictionError}
@@ -134,7 +134,7 @@ import { RestrictionModal, type RestrictionError } from '@hypery/sdk';
            │ 1. User types & submits
            ↓
 ┌─────────────────────┐
-│  @hypery/sdk    │
+│  @hyperyai/sdk    │
 │  Check if authed    │
 └──────────┬──────────┘
            │

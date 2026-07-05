@@ -2,7 +2,7 @@
 
 import { useChat } from '@ai-sdk/react';
 import { useState } from 'react';
-import { AuthButton } from '@hypery/sdk';
+import { AuthButton } from '@hyperyai/sdk';
 
 const models = [
   { name: 'Claude 3.5 Sonnet', value: 'anthropic/claude-3.5-sonnet' },

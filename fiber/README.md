@@ -5,7 +5,7 @@ A low-poly retro 3D model generator powered by AI chat interface. Create and mod
 ## Features
 
 - 🎨 **Chat-based 3D Generation** - Describe what you want and watch it appear
-- 🔐 **Secure OAuth Authentication** - Using @hypery/sdk
+- 🔐 **Secure OAuth Authentication** - Using @hyperyai/sdk
 - 🌐 **OpenRouter Integration** - Access to Claude 3.5 Sonnet and other top LLMs
 - 🎮 **Interactive 3D Scene** - Built with React Three Fiber and drei
 - 💅 **Modern UI** - Vercel AI SDK components and Tailwind CSS
@@ -16,7 +16,7 @@ A low-poly retro 3D model generator powered by AI chat interface. Create and mod
 - **Frontend**: Next.js 16, React 19, TypeScript
 - **3D Graphics**: React Three Fiber v9, Three.js, @react-three/drei
 - **AI/Chat**: Vercel AI SDK, OpenRouter
-- **Auth**: @hypery/sdk (OAuth 2.0 + PKCE)
+- **Auth**: @hyperyai/sdk (OAuth 2.0 + PKCE)
 - **Styling**: Tailwind CSS v4, shadcn/ui components
 - **LLM**: Claude 3.5 Sonnet (via OpenRouter)
 

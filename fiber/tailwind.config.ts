@@ -4,7 +4,7 @@ const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@hypery/sdk/dist/**/*.js",
+    "./node_modules/@hyperyai/sdk/dist/**/*.js",
   ],
 };
 

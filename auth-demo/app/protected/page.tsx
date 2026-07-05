@@ -1,6 +1,6 @@
 'use client';
 
-import { Protect, useUser } from '@hypery/sdk';
+import { Protect, useUser } from '@hyperyai/sdk';
 import Link from 'next/link';
 
 export default function ProtectedPage() {

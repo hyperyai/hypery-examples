@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
-import { useHyperyAuth, AuthModal, RestrictionModal, isAuthError, type RestrictionError } from '@hypery/sdk';
+import { useHyperyAuth, AuthModal, RestrictionModal, isAuthError, type RestrictionError } from '@hyperyai/sdk';
 import { Send, Loader2 } from 'lucide-react';
 
 interface ChatInterfaceProps {

@@ -5,8 +5,8 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    // Include the installed @hypery/sdk package so Tailwind generates its component classes
-    './node_modules/@hypery/sdk/dist/**/*.js',
+    // Include the installed @hyperyai/sdk package so Tailwind generates its component classes
+    './node_modules/@hyperyai/sdk/dist/**/*.js',
   ],
 };
 

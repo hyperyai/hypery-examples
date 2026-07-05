@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { HyperyProvider } from '@hypery/sdk';
+import { HyperyProvider } from '@hyperyai/sdk';
 
 const inter = Inter({ subsets: ['latin'] });
 

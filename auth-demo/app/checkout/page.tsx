@@ -8,7 +8,7 @@
  * a popup (desktop) or redirect (mobile / blocked popups), per interactionMode.
  */
 
-import { BuyButton, useCheckout, useHyperyAuth } from '@hypery/sdk';
+import { BuyButton, useCheckout, useHyperyAuth } from '@hyperyai/sdk';
 import { useState } from 'react';
 
 export default function CheckoutDemoPage() {

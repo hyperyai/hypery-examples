@@ -1,6 +1,6 @@
 'use client';
 
-import { Protect, useHyperyAuth } from '@hypery/sdk';
+import { Protect, useHyperyAuth } from '@hyperyai/sdk';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -178,7 +178,7 @@ function ApiDemoContent() {
           <div className="bg-gray-50 rounded-lg p-4">
             <h3 className="font-semibold mb-3">Example Code:</h3>
             <pre className="text-xs overflow-x-auto">
-{`import { useHyperyAuth } from '@hypery/sdk';
+{`import { useHyperyAuth } from '@hyperyai/sdk';
 
 function MyComponent() {
   const { getAccessToken } = useHyperyAuth();
