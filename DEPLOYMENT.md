@@ -56,12 +56,12 @@ vercel --prod                     # deploy
 ## Environment variables per app
 
 Set these in Vercel (Project → Settings → Environment Variables). Use your gateway
-origin — the Hypery API is `https://api.hypery.ai` and the v1 base is
-`https://api.hypery.ai/api/v1`. `REDIRECT_URI` is always `https://<project>.vercel.app/callback`.
+origin — the Hypery API is `https://hypery.ai` and the v1 base is
+`https://hypery.ai/api/v1`. `REDIRECT_URI` is always `https://<project>.vercel.app/callback`.
 
 **auth-demo**
 ```
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-auth-demo.vercel.app/callback
 NEXT_PUBLIC_DEMO_SELLER_APP_ID=app_…   # optional: enables the "buy" checkout demo
@@ -69,23 +69,23 @@ NEXT_PUBLIC_DEMO_SELLER_APP_ID=app_…   # optional: enables the "buy" checkout 
 
 **fiber**
 ```
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-fiber.vercel.app/callback
 ```
 
 **justmakeit**
 ```
-NEXT_PUBLIC_AI_GATEWAY_URL=https://api.hypery.ai
-NEXT_PUBLIC_GATEWAY_HUB_URL=https://api.hypery.ai
+NEXT_PUBLIC_AI_GATEWAY_URL=https://hypery.ai
+NEXT_PUBLIC_GATEWAY_HUB_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-justmakeit.vercel.app/callback
 ```
 
 **chat** (backend-proxy OAuth — the secret is server-side, do NOT prefix it with `NEXT_PUBLIC_`)
 ```
-NEXT_PUBLIC_API_URL=https://api.hypery.ai/api/v1
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_API_URL=https://hypery.ai/api/v1
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-chat.vercel.app/callback
 OAUTH_CLIENT_SECRET=…            # mark as "Sensitive" in Vercel
@@ -93,9 +93,9 @@ OAUTH_CLIENT_SECRET=…            # mark as "Sensitive" in Vercel
 
 **imagine** (backend-proxy OAuth)
 ```
-NEXT_PUBLIC_API_URL=https://api.hypery.ai/api/v1
-NEXT_PUBLIC_CORE_API_URL=https://api.hypery.ai
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_API_URL=https://hypery.ai/api/v1
+NEXT_PUBLIC_CORE_API_URL=https://hypery.ai
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-imagine.vercel.app/callback
 OAUTH_CLIENT_SECRET=…            # mark as "Sensitive" in Vercel
@@ -103,8 +103,8 @@ OAUTH_CLIENT_SECRET=…            # mark as "Sensitive" in Vercel
 
 **vercel-demo**
 ```
-NEXT_PUBLIC_API_URL=https://api.hypery.ai/api/v1
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_API_URL=https://hypery.ai/api/v1
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 NEXT_PUBLIC_OAUTH_CLIENT_ID=app_…
 NEXT_PUBLIC_REDIRECT_URI=https://hypery-vercel-demo.vercel.app/callback
 NEXT_PUBLIC_GATEWAY_API_KEY=ak_…   # optional; NOTE: NEXT_PUBLIC_ ships it to the browser,

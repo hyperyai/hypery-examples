@@ -24,7 +24,7 @@
 #      # optional:
 #      export AUTH_DEMO_SELLER_APP_ID=app_...          # enables the checkout demo
 #      export VERCEL_DEMO_GATEWAY_API_KEY=ak_...        # browser-exposed; use a throwaway key
-#      export HYPERY_GATEWAY=https://api.hypery.ai      # gateway origin (default)
+#      export HYPERY_GATEWAY=https://hypery.ai      # gateway origin (default)
 #
 # Usage:  VERCEL_TOKEN=... AUTH_DEMO_CLIENT_ID=... ./scripts/deploy-vercel.sh
 #         DEPLOY=0 ... ./scripts/deploy-vercel.sh    # create/configure only, don't deploy
@@ -34,7 +34,7 @@ set -euo pipefail
 API="https://api.vercel.com"
 REPO="${EXAMPLES_REPO:-hyperyai/hypery-examples}"
 ORG="${REPO%%/*}"; REPONAME="${REPO##*/}"
-GATEWAY="${HYPERY_GATEWAY:-https://api.hypery.ai}"
+GATEWAY="${HYPERY_GATEWAY:-https://hypery.ai}"
 BRANCH="${DEPLOY_BRANCH:-main}"
 DEPLOY="${DEPLOY:-1}"
 TID="${VERCEL_TEAM_ID:-}"
