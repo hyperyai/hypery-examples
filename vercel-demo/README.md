@@ -218,7 +218,7 @@ Update `.env.production`:
 ```bash
 NEXT_PUBLIC_OAUTH_CLIENT_ID=your_production_client_id
 NEXT_PUBLIC_REDIRECT_URI=https://your-app.com/callback
-NEXT_PUBLIC_AUTH_URL=https://api.hypery.ai
+NEXT_PUBLIC_AUTH_URL=https://hypery.ai
 ```
 
 ### Register Production App
