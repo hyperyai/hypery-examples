@@ -51,7 +51,7 @@ function ThemeToggle() {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  if (pathname === '/callback') return null;
+  if (pathname === '/callback' || pathname === '/gallery') return null;
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-6 px-4 sm:px-6">
