@@ -9,7 +9,7 @@
     "screenshots": "node scripts/screenshots.mjs"
   },
   "dependencies": {
-    "@hyperyai/sdk": "^1.0.0",
+    "@hyperyai/sdk": "^1.6.0",
     "lucide-react": "^1.56.0",
     "next": "^16.2.10",
     "react": "^19.2.7",
