@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 import { useHyperyAuth } from '@hyperyai/sdk';
 import { useRouter } from 'next/navigation';
+import { X } from 'lucide-react';
+import { Spinner } from '@/components/ui';
 
 export default function CallbackPage() {
   const { isAuthenticated, isLoading, error } = useHyperyAuth();
@@ -31,38 +33,25 @@ export default function CallbackPage() {
   }, [isAuthenticated, isLoading, error, router]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+    <div className="flex min-h-screen items-center justify-center p-4">
+      <div className="w-full max-w-sm rounded-2xl bg-card p-8 text-center shadow-card">
         {error ? (
           <>
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-8 h-8 text-red-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+            <div className="mx-auto mb-4 flex size-11 items-center justify-center rounded-full bg-danger-subtle text-danger-foreground">
+              <X className="size-5" />
             </div>
-            <h2 className="text-2xl font-bold mb-2">Authentication Failed</h2>
-            <p className="text-gray-600 mb-4">{error}</p>
-            <p className="text-sm text-gray-500">Redirecting back to home...</p>
+            <h2 className="text-xl font-semibold tracking-tight">Authentication failed</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{error}</p>
+            <p className="mt-4 text-xs text-subtle-foreground">Redirecting back to home…</p>
           </>
         ) : (
           <>
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Completing Sign In</h2>
-            <p className="text-gray-600">Please wait while we authenticate you...</p>
+            <Spinner className="mx-auto mb-4 block size-8" />
+            <h2 className="text-xl font-semibold tracking-tight">Completing sign in</h2>
+            <p className="mt-2 text-sm text-muted-foreground">One moment while we authenticate you…</p>
           </>
         )}
       </div>
     </div>
   );
 }
-

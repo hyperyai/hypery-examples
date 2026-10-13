@@ -10,6 +10,8 @@
 
 import { BuyButton, useCheckout, useHyperyAuth } from '@hyperyai/sdk';
 import { useState } from 'react';
+import { CreditCard } from 'lucide-react';
+import { C, Card, Page, PageHeader, button } from '@/components/ui';
 
 export default function CheckoutDemoPage() {
   const { isAuthenticated, interactionMode } = useHyperyAuth();
@@ -31,51 +33,49 @@ export default function CheckoutDemoPage() {
   };
 
   return (
-    <main style={{ maxWidth: 560, margin: '48px auto', padding: '0 20px', fontFamily: 'system-ui' }}>
-      <h1 style={{ fontSize: 24, fontWeight: 700 }}>Auth + charge demo</h1>
-      <p style={{ color: '#555', marginTop: 8 }}>
-        Signed in: <b>{isAuthenticated ? 'yes' : 'no'}</b> · interaction mode:{' '}
-        <b>{interactionMode}</b>
-      </p>
-
-      <section style={{ marginTop: 32 }}>
-        <h2 style={{ fontSize: 16, fontWeight: 600 }}>Marketplace purchase (&lt;BuyButton&gt;)</h2>
-        <p style={{ color: '#777', fontSize: 14, margin: '4px 0 12px' }}>
-          Charges a seller app via Stripe Connect. Logs you in and adds a card first if needed.
-        </p>
-        <BuyButton
-          appId={process.env.NEXT_PUBLIC_DEMO_SELLER_APP_ID || 'app_demo_seller'}
-          amountCents={499}
-          description="Pro upgrade (demo)"
-          onSuccess={(r) => alert(`Paid! paymentIntent=${r.paymentIntentId}`)}
-          onError={(e) => alert(`Purchase failed: ${e.message}`)}
-        />
-      </section>
-
-      <section style={{ marginTop: 40 }}>
-        <h2 style={{ fontSize: 16, fontWeight: 600 }}>Buy AI credits (useCheckout topup)</h2>
-        <p style={{ color: '#777', fontSize: 14, margin: '4px 0 12px' }}>
-          Tops up your own credit balance. Same login → add-card → charge chain.
-        </p>
-        <button
-          type="button"
-          onClick={buyCredits}
-          disabled={isRunning}
-          style={{
-            padding: '10px 20px',
-            borderRadius: 8,
-            border: 'none',
-            background: '#111',
-            color: '#fff',
-            fontWeight: 600,
-            cursor: isRunning ? 'not-allowed' : 'pointer',
-            opacity: isRunning ? 0.6 : 1,
-          }}
-        >
-          {isRunning ? `${status}…` : 'Add $5 credits'}
-        </button>
-        {topupResult && <p style={{ marginTop: 12, fontSize: 14 }}>{topupResult}</p>}
-      </section>
-    </main>
+    <Page narrow>
+      <PageHeader
+        icon={<CreditCard />}
+        title="Auth + charge"
+        description="Neither button needs you signed in: the SDK walks you through sign-in, adding a card and the charge."
+      />
+      <div className="mb-6 flex flex-wrap gap-2 text-xs">
+        <span className="rounded-md bg-muted px-2 py-1 text-muted-foreground">
+          Signed in: <b className="text-foreground">{isAuthenticated ? 'yes' : 'no'}</b>
+        </span>
+        <span className="rounded-md bg-muted px-2 py-1 text-muted-foreground">
+          Interaction mode: <b className="text-foreground">{interactionMode}</b>
+        </span>
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Card className="flex flex-col p-6">
+          <h2 className="font-semibold">Marketplace purchase</h2>
+          <p className="mt-1 flex-1 text-sm text-muted-foreground">
+            <C>{'<BuyButton>'}</C> charges a seller app via Stripe Connect.
+          </p>
+          <div className="mt-5">
+            <BuyButton
+              appId={process.env.NEXT_PUBLIC_DEMO_SELLER_APP_ID || 'app_demo_seller'}
+              amountCents={499}
+              description="Pro upgrade (demo)"
+              onSuccess={(r) => alert(`Paid! paymentIntent=${r.paymentIntentId}`)}
+              onError={(e) => alert(`Purchase failed: ${e.message}`)}
+            />
+          </div>
+        </Card>
+        <Card className="flex flex-col p-6">
+          <h2 className="font-semibold">Buy AI credits</h2>
+          <p className="mt-1 flex-1 text-sm text-muted-foreground">
+            <C>useCheckout()</C> tops up your own balance.
+          </p>
+          <div className="mt-5">
+            <button type="button" onClick={buyCredits} disabled={isRunning} className={button.secondary}>
+              {isRunning ? `${status}…` : 'Add $5 credits'}
+            </button>
+          </div>
+          {topupResult && <p className="mt-3 text-sm text-muted-foreground">{topupResult}</p>}
+        </Card>
+      </div>
+    </Page>
   );
 }
