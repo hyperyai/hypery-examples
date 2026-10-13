@@ -10,431 +10,311 @@ import {
   UserProfile,
   useAuth,
   useUser,
-  Protect,
-  RedirectToSignIn,
   AuthModal,
   AuthButton,
 } from '@hyperyai/sdk';
 import Link from 'next/link';
 import { useState } from 'react';
+import { CircleCheck, Info, TriangleAlert } from 'lucide-react';
+import { Card, CodeBlock, Note, Page, PageHeader, Section, button, cx } from '@/components/ui';
+
+function Hint({ children }: { children: React.ReactNode }) {
+  return <p className="text-center text-sm text-muted-foreground">{children}</p>;
+}
+
+const SIGNED_IN_HINT = "You're already signed in. Sign out to try this.";
 
 export default function ExamplesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg" />
-                <h1 className="text-xl font-bold">Hypery Auth</h1>
-              </Link>
-              <span className="text-gray-300">|</span>
-              <span className="text-gray-600">Examples</span>
-            </div>
+    <Page>
+      <PageHeader
+        eyebrow="@hyperyai/sdk"
+        title="Components"
+        description="Every component and hook in the SDK, live. Switch a card to Code to see how it's used, and flip the theme in the header to see dark mode."
+      />
 
-            <SignedIn>
-              <UserButton showUserInfo size="md" />
-            </SignedIn>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Component Examples</h1>
-          <p className="text-gray-600">
-            Complete showcase of all @hyperyai/sdk components and hooks
-          </p>
-        </div>
-
-        <div className="space-y-8">
-          {/* Modal Components */}
-          <Section
-            title="Modal Components"
-            description="Reusable modal-based authentication components"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ExampleCard
-                title="<AuthButton />"
-                description="Button that opens authentication modal"
-                code={`<AuthButton 
+      <div className="space-y-14">
+        <Section title="Modal components" description="Sign-in dialogs you can open from anywhere.">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <ExampleCard
+              title="<AuthButton />"
+              description="A button that opens the sign-in dialog."
+              code={`<AuthButton
   variant="primary"
   mode="signin"
   onSuccess={() => router.push('/dashboard')}
 >
   Sign In
 </AuthButton>`}
-              >
-                <SignedOut>
-                  <div className="space-y-3">
-                    <AuthButton variant="primary">Sign In</AuthButton>
-                    <AuthButton variant="secondary" mode="signup">
-                      Get Started
-                    </AuthButton>
-                    <AuthButton variant="outline" mode="signin">
-                      Outline Style
-                    </AuthButton>
-                  </div>
-                </SignedOut>
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're already signed in! Sign out to test this.
-                  </p>
-                </SignedIn>
-              </ExampleCard>
+            >
+              <SignedOut>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <AuthButton variant="primary">Sign In</AuthButton>
+                  <AuthButton variant="secondary" mode="signup">
+                    Get Started
+                  </AuthButton>
+                  <AuthButton variant="outline" mode="signin">
+                    Outline Style
+                  </AuthButton>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <Hint>{SIGNED_IN_HINT}</Hint>
+              </SignedIn>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<AuthModal />"
-                description="Standalone modal for custom integrations"
-                code={`const [isOpen, setIsOpen] = useState(false);
+            <ExampleCard
+              title="<AuthModal />"
+              description="The dialog on its own, for custom triggers."
+              code={`const [isOpen, setIsOpen] = useState(false);
 
-<AuthModal 
+<AuthModal
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
   initialMode="signin"
-  onSuccess={() => console.log('Success!')}
+  showEmailPassword
+  branding={{ appName: 'Acme' }}
 />`}
-              >
-                <SignedOut>
-                  <AuthModalExample />
-                </SignedOut>
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're already signed in! Sign out to test this.
-                  </p>
-                </SignedIn>
-              </ExampleCard>
-            </div>
-          </Section>
+            >
+              <SignedOut>
+                <AuthModalExample />
+              </SignedOut>
+              <SignedIn>
+                <Hint>{SIGNED_IN_HINT}</Hint>
+              </SignedIn>
+            </ExampleCard>
+          </div>
+        </Section>
 
-          {/* Authentication Components */}
-          <Section
-            title="Authentication Components"
-            description="Sign in, sign up, and user interface components"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ExampleCard
-                title="<SignIn />"
-                description="Button to initiate sign-in flow"
-                code={`<SignIn 
+        <Section title="Authentication components" description="Sign in, sign up, and the signed-in user.">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <ExampleCard
+              title="<SignIn />"
+              description="Starts the hosted sign-in flow."
+              code={`<SignIn
   buttonText="Sign in"
   variant="primary"
 />`}
-              >
-                <SignedOut>
+            >
+              <SignedOut>
+                <div className="flex justify-center">
                   <SignIn buttonText="Try Sign In" variant="primary" />
-                </SignedOut>
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're already signed in! Sign out to test this.
-                  </p>
-                </SignedIn>
-              </ExampleCard>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <Hint>{SIGNED_IN_HINT}</Hint>
+              </SignedIn>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<SignInForm />"
-                description="Embedded login form with email/password and OAuth"
-                code={`<SignInForm 
+            <ExampleCard
+              title="<SignUp />"
+              description="Starts the hosted sign-up flow."
+              code={`<SignUp
+  buttonText="Get Started"
+  variant="secondary"
+/>`}
+            >
+              <SignedOut>
+                <div className="flex justify-center">
+                  <SignUp buttonText="Try Sign Up" variant="secondary" />
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <Hint>{SIGNED_IN_HINT}</Hint>
+              </SignedIn>
+            </ExampleCard>
+
+            <ExampleCard
+              title="<SignInForm />"
+              description="An embedded sign-in card."
+              code={`<SignInForm
   showCard
   showTitle
+  showEmailPassword
   onSuccess={() => console.log('Signed in!')}
 />`}
-              >
-                <SignedOut>
-                  <SignInForm 
-                    showCard
-                    showTitle={false}
-                    title="Try the form"
-                    description="Embedded authentication"
-                  />
-                </SignedOut>
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're already signed in! Sign out to test this.
-                  </p>
-                </SignedIn>
-              </ExampleCard>
+            >
+              <SignedOut>
+                <SignInForm showCard showEmailPassword title="Sign in to Acme" description="Use your Hypery account" />
+              </SignedOut>
+              <SignedIn>
+                <Hint>{SIGNED_IN_HINT}</Hint>
+              </SignedIn>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<SignUp />"
-                description="Button to initiate sign-up flow"
-                code={`<SignUp 
-  buttonText="Get Started"
-  variant="primary"
-/>`}
-              >
-                <SignedOut>
-                  <SignUp buttonText="Try Sign Up" variant="secondary" />
-                </SignedOut>
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're already signed in! Sign out to test this.
-                  </p>
-                </SignedIn>
-              </ExampleCard>
-
+            <div className="grid gap-5">
               <ExampleCard
                 title="<UserButton />"
-                description="User menu with profile and sign out"
-                code={`<UserButton 
-  showUserInfo={true}
+                description="Avatar with a profile menu and sign out."
+                code={`<UserButton
+  showUserInfo
   size="md"
 />`}
               >
                 <SignedIn>
-                  <UserButton showUserInfo size="lg" />
+                  <div className="flex justify-center">
+                    <UserButton showUserInfo size="lg" />
+                  </div>
                 </SignedIn>
                 <SignedOut>
-                  <p className="text-sm text-gray-600">
-                    Sign in to see the user button
-                  </p>
+                  <Hint>Sign in to see the user button.</Hint>
                 </SignedOut>
               </ExampleCard>
 
               <ExampleCard
                 title="<UserProfile />"
-                description="User profile card component"
-                code={`<UserProfile 
-  showExtended={true}
-/>`}
+                description="The signed-in user as a card."
+                code={`<UserProfile showExtended />`}
               >
                 <SignedIn>
                   <UserProfile showExtended />
                 </SignedIn>
                 <SignedOut>
-                  <p className="text-sm text-gray-600">
-                    Sign in to see your profile
-                  </p>
+                  <Hint>Sign in to see your profile.</Hint>
                 </SignedOut>
               </ExampleCard>
             </div>
-          </Section>
+          </div>
+        </Section>
 
-          {/* Control Components */}
-          <Section
-            title="Control Components"
-            description="Conditional rendering based on authentication state"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ExampleCard
-                title="<SignedIn />"
-                description="Only renders children when authenticated"
-                code={`<SignedIn>
+        <Section title="Control components" description="Render by authentication state.">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <ExampleCard
+              title="<SignedIn />"
+              description="Renders its children only when signed in."
+              code={`<SignedIn>
   <p>You can see this!</p>
 </SignedIn>`}
-              >
-                <div className="space-y-2">
-                  <SignedIn>
-                    <div className="bg-green-50 border border-green-200 rounded p-3">
-                      <p className="text-sm text-green-800">
-                        ✓ You're signed in, so you can see this!
-                      </p>
-                    </div>
-                  </SignedIn>
-                  <SignedOut>
-                    <div className="bg-gray-50 border border-gray-200 rounded p-3">
-                      <p className="text-sm text-gray-600">
-                        You're not signed in. The SignedIn component won't show.
-                      </p>
-                    </div>
-                  </SignedOut>
-                </div>
-              </ExampleCard>
+            >
+              <SignedIn>
+                <Note tone="success" icon={<CircleCheck />}>
+                  You're signed in, so you can see this.
+                </Note>
+              </SignedIn>
+              <SignedOut>
+                <Note icon={<Info />}>You're signed out, so SignedIn renders nothing.</Note>
+              </SignedOut>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<SignedOut />"
-                description="Only renders children when NOT authenticated"
-                code={`<SignedOut>
+            <ExampleCard
+              title="<SignedOut />"
+              description="Renders its children only when signed out."
+              code={`<SignedOut>
   <SignIn />
 </SignedOut>`}
-              >
-                <div className="space-y-2">
-                  <SignedOut>
-                    <div className="bg-blue-50 border border-blue-200 rounded p-3">
-                      <p className="text-sm text-blue-800 mb-2">
-                        ✓ You're signed out, so you can see this!
-                      </p>
-                      <SignIn buttonText="Sign in here" variant="outline" />
-                    </div>
-                  </SignedOut>
-                  <SignedIn>
-                    <div className="bg-gray-50 border border-gray-200 rounded p-3">
-                      <p className="text-sm text-gray-600">
-                        You're signed in. The SignedOut component won't show.
-                      </p>
-                    </div>
-                  </SignedIn>
+            >
+              <SignedOut>
+                <div className="flex flex-col items-center gap-4">
+                  <Note tone="success" icon={<CircleCheck />}>
+                    You're signed out, so you can see this.
+                  </Note>
+                  <SignIn buttonText="Sign in here" variant="outline" />
                 </div>
-              </ExampleCard>
+              </SignedOut>
+              <SignedIn>
+                <Note icon={<Info />}>You're signed in, so SignedOut renders nothing.</Note>
+              </SignedIn>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<Protect />"
-                description="Protects routes with automatic redirect"
-                code={`<Protect 
-  fallback={<Loading />}
->
+            <ExampleCard
+              title="<Protect />"
+              description="Gates a page and redirects to sign-in."
+              code={`<Protect fallback={<Loading />}>
   <ProtectedContent />
 </Protect>`}
-              >
-                <div className="bg-purple-50 border border-purple-200 rounded p-3">
-                  <p className="text-sm text-purple-800">
-                    See the <Link href="/protected" className="underline font-medium">protected page</Link> for a live example
-                  </p>
-                </div>
-              </ExampleCard>
+            >
+              <Note tone="info" icon={<Info />}>
+                See the{' '}
+                <Link href="/protected" className="font-medium underline underline-offset-4">
+                  protected page
+                </Link>{' '}
+                for a live example.
+              </Note>
+            </ExampleCard>
 
-              <ExampleCard
-                title="<RedirectToSignIn />"
-                description="Immediately redirects to sign in"
-                code={`<RedirectToSignIn />`}
-              >
-                <SignedIn>
-                  <p className="text-sm text-gray-600">
-                    You're signed in, so it won't redirect
-                  </p>
-                </SignedIn>
-                <SignedOut>
-                  <p className="text-sm text-orange-800 bg-orange-50 border border-orange-200 rounded p-3">
-                    ⚠️ Disabled in this example to prevent redirect loop
-                  </p>
-                </SignedOut>
-              </ExampleCard>
-            </div>
-          </Section>
+            <ExampleCard
+              title="<RedirectToSignIn />"
+              description="Sends the visitor straight to sign-in."
+              code={`<RedirectToSignIn />`}
+            >
+              <SignedIn>
+                <Hint>You're signed in, so it won't redirect.</Hint>
+              </SignedIn>
+              <SignedOut>
+                <Note tone="warning" icon={<TriangleAlert />}>
+                  Disabled on this page to avoid a redirect loop.
+                </Note>
+              </SignedOut>
+            </ExampleCard>
+          </div>
+        </Section>
 
-          {/* Hooks */}
-          <Section
-            title="React Hooks"
-            description="Access authentication state and user data"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ExampleCard
-                title="useAuth()"
-                description="Access full authentication state"
-                code={`const { 
-  isAuthenticated, 
-  isLoading, 
-  user, 
-  login, 
-  logout 
+        <Section title="React hooks" description="Read authentication state and user data.">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <ExampleCard
+              title="useAuth()"
+              description="The full authentication state."
+              code={`const {
+  isAuthenticated,
+  isLoading,
+  user,
+  login,
+  logout,
 } = useAuth();`}
-              >
-                <UseAuthExample />
-              </ExampleCard>
+            >
+              <UseAuthExample />
+            </ExampleCard>
 
-              <ExampleCard
-                title="useUser()"
-                description="Access just the user data"
-                code={`const { user, isLoading } = useUser();
+            <ExampleCard
+              title="useUser()"
+              description="Just the user."
+              code={`const { user, isLoading } = useUser();
 
 console.log(user.name);
 console.log(user.email);`}
-              >
-                <UseUserExample />
-              </ExampleCard>
-            </div>
-          </Section>
-
-          {/* Styling Examples */}
-          <Section
-            title="Customization"
-            description="Custom styling and behavior"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <ExampleCard
-                title="Primary Variant"
-                description="Default blue style"
-                code={`<SignIn variant="primary" />`}
-              >
-                <SignedOut>
-                  <SignIn variant="primary" buttonText="Primary" />
-                </SignedOut>
-                <SignedIn>
-                  <div className="w-full py-2.5 px-6 bg-blue-600 text-white rounded-lg text-center font-medium">
-                    Primary Style
-                  </div>
-                </SignedIn>
-              </ExampleCard>
-
-              <ExampleCard
-                title="Secondary Variant"
-                description="Gray style"
-                code={`<SignIn variant="secondary" />`}
-              >
-                <SignedOut>
-                  <SignIn variant="secondary" buttonText="Secondary" />
-                </SignedOut>
-                <SignedIn>
-                  <div className="w-full py-2.5 px-6 bg-gray-600 text-white rounded-lg text-center font-medium">
-                    Secondary Style
-                  </div>
-                </SignedIn>
-              </ExampleCard>
-
-              <ExampleCard
-                title="Outline Variant"
-                description="Outlined style"
-                code={`<SignIn variant="outline" />`}
-              >
-                <SignedOut>
-                  <SignIn variant="outline" buttonText="Outline" />
-                </SignedOut>
-                <SignedIn>
-                  <div className="w-full py-2.5 px-6 border-2 border-blue-600 text-blue-600 rounded-lg text-center font-medium">
-                    Outline Style
-                  </div>
-                </SignedIn>
-              </ExampleCard>
-            </div>
-          </Section>
-        </div>
-
-        {/* Back to Home */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
-          >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Home
-          </Link>
-        </div>
-      </main>
-    </div>
-  );
-}
+              <UseUserExample />
+            </ExampleCard>
+          </div>
+        </Section>
 
-function Section({
-  title,
-  description,
-  children,
-}: {
-  title: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section>
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-1">{title}</h2>
-        <p className="text-gray-600">{description}</p>
+        <Section
+          title="Customization"
+          description="Variants, plus theming through --hy-* CSS variables."
+        >
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {(['primary', 'secondary', 'outline'] as const).map((variant) => (
+              <ExampleCard
+                key={variant}
+                title={`variant="${variant}"`}
+                description={
+                  variant === 'primary' ? 'The brand fill.' : variant === 'secondary' ? 'A quiet filled button.' : 'A hairline outline.'
+                }
+                code={`<SignIn variant="${variant}" />`}
+              >
+                <SignedOut>
+                  <div className="flex justify-center">
+                    <SignIn variant={variant} buttonText={variant[0].toUpperCase() + variant.slice(1)} />
+                  </div>
+                </SignedOut>
+                <SignedIn>
+                  <Hint>{SIGNED_IN_HINT}</Hint>
+                </SignedIn>
+              </ExampleCard>
+            ))}
+          </div>
+          <CodeBlock
+            className="mt-5"
+            title="globals.css"
+            code={`/* Rebrand every SDK component */
+.hypery {
+  --hy-primary: oklch(0.55 0.2 290);
+  --hy-radius: 0.75rem;
+}`}
+          />
+        </Section>
       </div>
-      {children}
-    </section>
+    </Page>
   );
 }
 
@@ -449,64 +329,74 @@ function ExampleCard({
   code: string;
   children: React.ReactNode;
 }) {
-  const [showCode, setShowCode] = useState(false);
+  const [tab, setTab] = useState<'preview' | 'code'>('preview');
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="text-sm text-gray-600 mt-1">{description}</p>
-          </div>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className="text-xs bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded transition"
-          >
-            {showCode ? 'Hide' : 'Code'}
-          </button>
+    <Card className="flex flex-col overflow-hidden">
+      <div className="flex items-start justify-between gap-4 px-5 pb-4 pt-5">
+        <div className="min-w-0">
+          <h3 className="font-mono text-sm font-semibold">{title}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
         </div>
+        <div className="flex shrink-0 rounded-lg bg-muted p-0.5" role="tablist">
+          {(['preview', 'code'] as const).map((t) => (
+            <button
+              key={t}
+              type="button"
+              role="tab"
+              aria-selected={tab === t}
+              onClick={() => setTab(t)}
+              className={cx(
+                'rounded-md px-2.5 py-1 text-xs font-medium capitalize transition-colors',
+                tab === t ? 'bg-card text-foreground shadow-xs' : 'text-muted-foreground hover:text-foreground',
+              )}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
 
-        {showCode && (
-          <div className="mb-4 bg-gray-900 rounded-lg p-4 overflow-x-auto">
-            <pre className="text-sm text-gray-100">
-              <code>{code}</code>
-            </pre>
+      <div className="flex flex-1 flex-col px-2 pb-2">
+        {tab === 'code' ? (
+          <CodeBlock code={code} className="flex-1" />
+        ) : (
+          <div className="flex min-h-36 flex-1 items-center justify-center rounded-xl bg-surface-sunken p-6">
+            <div className="w-full">{children}</div>
           </div>
         )}
-
-        <div className="pt-4 border-t border-gray-200">{children}</div>
       </div>
+    </Card>
+  );
+}
+
+function Row({ k, v, tone }: { k: string; v: string; tone?: 'success' | 'danger' | 'muted' }) {
+  return (
+    <div className="flex items-center justify-between py-2">
+      <span className="text-muted-foreground">{k}</span>
+      <span
+        className={cx(
+          'rounded-md px-1.5 py-0.5',
+          tone === 'success' && 'bg-success-subtle text-success-foreground',
+          tone === 'danger' && 'bg-danger-subtle text-danger-foreground',
+          (!tone || tone === 'muted') && 'bg-muted text-foreground',
+        )}
+      >
+        {v}
+      </span>
     </div>
   );
 }
 
 function UseAuthExample() {
-  const { isAuthenticated, isLoading, user, login, logout } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
 
   return (
-    <div className="space-y-2 text-sm font-mono">
-      <div className="flex justify-between">
-        <span className="text-gray-600">isAuthenticated:</span>
-        <span className={isAuthenticated ? 'text-green-600' : 'text-red-600'}>
-          {String(isAuthenticated)}
-        </span>
-      </div>
-      <div className="flex justify-between">
-        <span className="text-gray-600">isLoading:</span>
-        <span className="text-blue-600">{String(isLoading)}</span>
-      </div>
-      <div className="flex justify-between">
-        <span className="text-gray-600">user:</span>
-        <span className="text-purple-600">
-          {user ? 'object' : 'null'}
-        </span>
-      </div>
-      <div className="pt-2 border-t border-gray-200 space-y-1">
-        <div className="text-gray-600">Methods:</div>
-        <div className="text-xs">• login()</div>
-        <div className="text-xs">• logout()</div>
-      </div>
+    <div className="divide-y divide-border rounded-xl bg-card px-4 font-mono text-xs shadow-xs">
+      <Row k="isAuthenticated" v={String(isAuthenticated)} tone={isAuthenticated ? 'success' : 'danger'} />
+      <Row k="isLoading" v={String(isLoading)} />
+      <Row k="user" v={user ? 'object' : 'null'} />
+      <Row k="methods" v="login() · logout()" />
     </div>
   );
 }
@@ -514,27 +404,16 @@ function UseAuthExample() {
 function UseUserExample() {
   const { user, isLoading } = useUser();
 
-  if (isLoading) {
-    return <p className="text-sm text-gray-500">Loading...</p>;
-  }
-
-  if (!user) {
-    return <p className="text-sm text-gray-500">Not signed in</p>;
-  }
+  if (isLoading) return <Hint>Loading…</Hint>;
+  if (!user) return <Hint>Not signed in, so user is null.</Hint>;
 
   return (
-    <div className="space-y-2 text-sm">
-      <div className="font-mono bg-gray-50 rounded p-2">
-        <div className="text-xs text-gray-500">user.name</div>
-        <div className="font-medium">{user.name}</div>
-      </div>
-      <div className="font-mono bg-gray-50 rounded p-2">
-        <div className="text-xs text-gray-500">user.email</div>
-        <div className="font-medium">{user.email}</div>
-      </div>
-      <div className="font-mono bg-gray-50 rounded p-2">
-        <div className="text-xs text-gray-500">user.id</div>
-        <div className="font-medium text-xs truncate">{user.id}</div>
+    <div className="divide-y divide-border rounded-xl bg-card px-4 font-mono text-xs shadow-xs">
+      <Row k="user.name" v={user.name} />
+      <Row k="user.email" v={user.email} />
+      <div className="flex items-center justify-between gap-4 py-2">
+        <span className="text-muted-foreground">user.id</span>
+        <span className="truncate">{user.id}</span>
       </div>
     </div>
   );
@@ -544,28 +423,24 @@ function AuthModalExample() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-medium transition-all"
-      >
+    <div className="flex justify-center">
+      <button type="button" onClick={() => setIsOpen(true)} className={button.primary}>
         Open Auth Modal
       </button>
-      
+
       <AuthModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         initialMode="signin"
+        showEmailPassword
         onSuccess={() => {
           setIsOpen(false);
           alert('Successfully signed in!');
         }}
         branding={{
           appName: 'Hypery',
-          primaryColor: '#8b5cf6',
         }}
       />
-    </>
+    </div>
   );
 }
-
